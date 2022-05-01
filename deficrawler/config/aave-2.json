@@ -433,8 +433,7 @@
             },
             "name": "rebalanceStableBorrowRates",
             "params": {
-                "orderBy": "timestamp",
-                "initial_value": 0
+                "orderBy": "timestamp"
             }
         },
         "transformations": {
@@ -951,7 +950,6 @@
             },
             "params": {
                 "user": "user",
-                "initial_value": "0",
                 "orderBy": "timestamp"
             }
         },
@@ -994,7 +992,6 @@
             },
             "params": {
                 "user": "user",
-                "initial_value": "0",
                 "orderBy": "timestamp"
             }
         },
@@ -1037,7 +1034,6 @@
             },
             "params": {
                 "user": "user",
-                "initial_value": "0",
                 "orderBy": "timestamp"
             }
         },
