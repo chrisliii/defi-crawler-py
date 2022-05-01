@@ -37,7 +37,7 @@ class Querys:
                     orderBy: {order_by}
                     orderDirection: asc
                     where: {{
-                        {order_by}_gt:"{filter_value}"
+                        {order_by}_gt:{filter_value}
                     }}
                 ){{
                     {attributes}
@@ -102,7 +102,7 @@ class Querys:
                     orderBy: {order_by}
                     orderDirection: asc
                     where: {{
-                        {order_by}_gt: "{filter_value}"
+                        {order_by}_gt: {filter_value}
                     }}
                 ){{
                     {attributes}

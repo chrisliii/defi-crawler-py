@@ -50,7 +50,7 @@ class Lending(ProtocolBase):
 
     def get_data_batch(self, entity, user='', smallbatch=False):
         """
-        Gets data for the specified entity in the from_data to to_date period.
+        Gets data for the specified entity for the whole period (with record).
         The entities are defined in the configuration of each protocol.
         """
 
