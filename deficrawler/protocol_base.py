@@ -17,6 +17,7 @@ class ProtocolBase:
         self.query_from_timestamp_small = Querys.QUERY_FROM_TIMESTAMP_SMALL
         self.query_batch = Querys.QUERY_BATCH 
         self.query_all_elements = Querys.QUERY_ALL_ELEMENTS
+        self.query_all_elements_no_filter = Querys.QUERY_ALL_ELEMENTS_NO_FILTER
         self.query_all_elements_small = Querys.QUERY_ALL_ELEMENTS_SMALL
         self.query_filter = Querys.QUERY_ELEMENT_FILTER
         self.query_filter_small = Querys.QUERY_ELEMENT_FILTER_SMALL
@@ -53,7 +54,12 @@ class ProtocolBase:
         if smallbatch:
             query = self.query_batch
         else:
-            query = self.query_batch
+            try:
+                filter_value = self.mappings_file['entities'][entity]['query']['params']['initial_value']
+                query = self.query_batch
+            except:
+                query = self.query_all_elements_no_filter
+
 
         return get_data_batch(query_input=query,
                              entity=entity,
@@ -69,7 +75,11 @@ class ProtocolBase:
         if smallbatch:
             query = self.query_all_elements_small
         else:
-            query = self.query_all_elements
+            try:
+                filter_value = self.mappings_file['entities'][entity]['query']['params']['initial_value']
+                query = self.query_batch
+            except:
+                query = self.query_all_elements_no_filter
 
         return get_data_parameter(query_input=query,
                                   entity=entity,

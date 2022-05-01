@@ -37,6 +37,20 @@ class Querys:
                     orderBy: {order_by}
                     orderDirection: asc
                     where: {{
+                        {order_by}_gt:"{filter_value}"
+                    }}
+                ){{
+                    {attributes}
+                }}
+            }}
+        """
+
+    QUERY_ALL_ELEMENTS_NO_FILTER = """ {{
+            {entity_name}(
+                    first: 1000
+                    orderBy: {order_by}
+                    orderDirection: asc
+                    where: {{
                         {order_by}_gt:{filter_value}
                     }}
                 ){{
@@ -102,7 +116,7 @@ class Querys:
                     orderBy: {order_by}
                     orderDirection: asc
                     where: {{
-                        {order_by}_gt: {filter_value}
+                        {order_by}_gt: "{filter_value}"
                     }}
                 ){{
                     {attributes}

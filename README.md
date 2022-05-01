@@ -1,5 +1,21 @@
 [![banner](https://raw.githubusercontent.com/keyko-io/assets/master/images/logo/small/keyko_logo@2x-100.jpg)](https://keyko.io)
 
+## Customization  
+
+This version is based on https://github.com/vv111y/defi-crawler-py for simplicity and fixation.
+
+get_entity_data method will return the batch data of a given entity; it applies to all entities in aave-2.json and compound-2.json.
+
+How to use:  
+from deficrawler import Lending  
+compound = Lending(protocol="Compound", chain="Ethereum", version=2)  
+compound.get_entity_data(entity="token")  
+compound.get_entity_data(entity="user")  
+aave = Lending(protocol="Aave", chain="Ethereum", version=2)  
+aave.get_entity_data(entity="rebalancestableborrowrate")  
+aave.get_entity_data(entity="user")  
+
+
 # DeFi Crawler Python library
 > [keyko.io](https://keyko.io)
 ---

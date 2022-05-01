@@ -42,9 +42,10 @@ def get_data_from(query_input, entity, from_timestamp, to_timestamp, mappings_fi
 
     return json_records
 
+
 def get_data_batch(query_input, entity, mappings_file, endpoint, aditional_filters=""):
     """
-    Gets all the existing data from the subgraph for a given entity. 
+    Gets historical data from the subgraph for a given entity.
     One or mor filters can be passed as parameters and will be applied in the where clause
     """
     are_data = True
@@ -54,7 +55,10 @@ def get_data_batch(query_input, entity, mappings_file, endpoint, aditional_filte
     order_by = mappings_file['entities'][entity]['query']['params']['orderBy']
     attributes = get_attributes(entity, mappings_file)
     filters_str = get_filters(aditional_filters)
-    filter_value = 0
+    try:
+        filter_value = mappings_file['entities'][entity]['query']['params']['initial_value']
+    except:
+        filter_value = 0
 
     while are_data:
         query = query_input.format(
@@ -90,7 +94,10 @@ def get_data_parameter(query_input, entity, mappings_file, endpoint):
 
     entity_name = mappings_file['entities'][entity]['query']['name']
     order_by = mappings_file['entities'][entity]['query']['params']['orderBy']
-    filter_value = 0
+    try:
+        filter_value = mappings_file['entities'][entity]['query']['params']['initial_value']
+    except:
+        filter_value = 0
     attributes = get_attributes(entity, mappings_file)
 
     while are_data:

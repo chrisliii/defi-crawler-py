@@ -607,7 +607,7 @@
           ]
         },
         "params": {
-          "user": "user"
+          "orderBy": "user_id"
         }
       },
       "transformations": {
